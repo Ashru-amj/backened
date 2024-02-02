@@ -26,14 +26,12 @@ app.use("/api", userRoutes);
 app.use("/api", questionRoutes);
 app.use("/api", quizRoutes);
 
-// Serve static files with an absolute path
-app.use(express.static(path.resolve(__dirname, "backend_q/build")));
 
-// Catch-all route
-app.get("*", function (req, res) {
-  res.sendFile(path.resolve(__dirname, "backend_q/build"));
-});
+app.use(express.static(path.join(__dirname, './build')))
 
+app.get('*', function (req, res) {
+  res.sendFile(path.join(__dirname, './build/index.html'))
+})
 mongoose.set("strictQuery", false);
 
 dbConnect();
