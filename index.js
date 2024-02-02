@@ -31,7 +31,7 @@ app.use(express.static(path.resolve(__dirname, "backend_q/build")));
 
 // Catch-all route
 app.get("*", function (req, res) {
-  res.sendFile(path.resolve(__dirname, "backend_q/build", "index.html"));
+  res.sendFile(path.resolve(__dirname, "backend_q/build"));
 });
 
 mongoose.set("strictQuery", false);
